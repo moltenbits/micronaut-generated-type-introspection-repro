@@ -47,12 +47,12 @@ without an introspection on 5.2.0.
 ## Impact with Micronaut Data
 
 `@MappedEntity` carries `@Introspected`, so a record entity with such a factory
-loses its introspection the same way. A Micronaut Data repository for that
-entity, or for an entity related to it, is also compiled without its
-compile-time queries, and every method fails when called with
-`Micronaut Data method is missing compilation time query information`. In the
-application where this was found, 16 of 38 entities and 18 of 36 repositories
-were affected, all compiling cleanly.
+loses its introspection the same way. In the application where this was found,
+16 of 38 entities were affected, all compiling cleanly.
+
+Their repositories were also compiled without their compile-time queries. That
+is a separate Micronaut Data 5.2.0 regression with the same trigger, not a
+consequence of the missing introspection, and it is not reproduced here.
 
 ## Environment
 
