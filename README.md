@@ -39,6 +39,11 @@ IntrospectionTest > recordWhoseStaticMethodReturnsAGeneratedTypeIsIntrospected()
 | 5.1.5 | 5.1.15 | introspected | introspected |
 | 5.2.0 | 5.2.8 | no introspection | introspected |
 
+Processor order does not change the result. Putting RecordBuilder first on the
+annotation processor path, with the `annotationProcessorPath` sort the Micronaut
+Gradle plugin documents for Lombok, still leaves `RecordWithBuilderFactory`
+without an introspection on 5.2.0.
+
 ## Impact with Micronaut Data
 
 `@MappedEntity` carries `@Introspected`, so a record entity with such a factory
