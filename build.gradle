@@ -10,8 +10,11 @@ repositories {
 }
 
 dependencies {
+    micronautBoms(platform("io.micronaut:micronaut-core-bom:${property('micronautCoreVersion')}"))
     annotationProcessor("io.soabase.record-builder:record-builder-processor:53")
     compileOnly("io.soabase.record-builder:record-builder-core:53")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
     runtimeOnly("ch.qos.logback:logback-classic")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
